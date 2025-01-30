@@ -30,7 +30,7 @@
 #  - Follow platform guideline specified in https://github.com/docker-library/official-images
 #
 
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 ARG FETCH_VERSION=latest
 ARG OBSERVIUM_ADMIN_USER=admin
@@ -69,14 +69,14 @@ RUN apt update && \
                     wget
 
 # install observium required packages
-RUN apt install -y  libapache2-mod-php8.1 \
-                    php8.1-cli \
-                    php8.1-mysql \
-                    php8.1-gd \
-                    php8.1-bcmath \
-                    php8.1-mbstring \
-                    php8.1-opcache \
-                    php8.1-curl \
+RUN apt install -y  libapache2-mod-php8.3 \
+                    php8.3-cli \
+                    php8.3-mysql \
+                    php8.3-gd \
+                    php8.3-bcmath \
+                    php8.3-mbstring \
+                    php8.3-opcache \
+                    php8.3-curl \
                     php-apcu \
                     php-pear \
                     libphp-phpmailer \
@@ -139,7 +139,7 @@ RUN phpenmod mcrypt
 COPY observium-apache24 /etc/apache2/sites-available/000-default.conf
 RUN a2dismod mpm_event && \
     a2enmod mpm_prefork && \
-    a2enmod php8.1 && \
+    a2enmod php8.3 && \
     a2enmod rewrite && \
     chmod 644 /etc/apache2/sites-available/000-default.conf && \
     sed -i -e 's#${APACHE_LOG_DIR}/#/opt/observium/logs/apache2-#g' /etc/apache2/apache2.conf

@@ -3,7 +3,6 @@ Observium is network monitoring with intuition. It is a low-maintenance auto-dis
 
 Available platform are:-
 * AMD64 (Intel x86_64) https://hub.docker.com/r/mbixtech/observium/
-* ARM32v7 (Raspberri Pi 2/3) https://hub.docker.com/r/mbixtech/arm32v7-observium/
 
 ## Usage
 Either follow the choice A. or B. below to run Observium.
