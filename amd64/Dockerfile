@@ -40,11 +40,6 @@ ARG OBSERVIUM_DB_USER=observium
 ARG OBSERVIUM_DB_PASS=passw0rd
 ARG OBSERVIUM_DB_NAME=observium
 
-LABEL maintainer "somsakc@hotmail.com"
-LABEL version="1.7"
-LABEL description="Docker container for Observium Community Edition"
-LABEL fetch_version="$FETCH_VERSION"
-
 # set environment variables
 ENV FETCH_VERSION=$FETCH_VERSION
 ENV LANG=en_US.UTF-8
