@@ -12,6 +12,8 @@ on:
     tags: [ 'v*.*.*' ]
   pull_request:
     branches: [ "master" ]
+  # Manual rebuild (e.g. to pick up security updates of base packages)
+  workflow_dispatch:
 
 env:
   # Use docker.io for Docker Hub if empty
@@ -78,4 +80,5 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
+          no-cache: ${{ github.event_name == 'workflow_dispatch' }}
           cache-to: type=gha,mode=max
